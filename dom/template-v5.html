@@ -1,0 +1,25 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="app">
+    <p v-once>{{ titulo }}</p>   
+    <p>{{ saudacao() }}</p>
+    <a v-bind:href="link">Google</a>
+</div>
+
+<script>
+//"a[href]" cria um link, "v-bind" serve para fazer a ligacao entre algo que está na Vue instance e um atributo da tag do template.
+//"v-once" server para atualizar o "titulo" uma vez e nao alterar os dados permanente.
+    new Vue({
+        el: '#app',
+        data: {
+            titulo: 'Usando VueJS',
+            link: 'http://google.com.br'
+        },
+        methods: {
+            saudacao: function() {
+                this.titulo = 'Bom dia!!!'
+                return this.titulo    //O "this" possibilita acessar o "titulo" dentro da instância do Vue.
+            }
+        }
+    })
+</script>
